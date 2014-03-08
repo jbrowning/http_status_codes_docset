@@ -175,4 +175,167 @@ INTRO
     end
   end
 
+  category do
+    id '4xx Client Error'
+
+    entry do
+      command '400'
+      command ':bad_request'
+      name 'Bad Request'
+      notes 'The request could not be fulfilled due to the incorrect syntax of the request.'
+    end
+
+    entry do
+      command '401'
+      command ':unauthorized'
+      name 'Unauthorized'
+      notes 'The requestor is not authorized to access the resource. This is similar to `402` but is used in cases where authentication is expected but has failed or has not been provided.'
+    end
+
+    entry do
+      command '402'
+      command ':payment_required'
+      name 'Payment Required'
+      notes 'Reserved for future use. Some web services use this as an indication that the client has sent an excessive number of requets.'
+    end
+
+    entry do
+      command '403'
+      command ':forbidden'
+      name 'Forbidden'
+      notes "The request was formatted correctly but the server is refusing to supply the requested resource. Unlike `402`, authenticating will not make a difference in the server's response."
+    end
+
+    entry do
+      command '404'
+      command ':not_found'
+      name 'Not Found'
+      notes "The resource could not be found. This is often used as a catch-all for all invalid URIs requested of the server."
+    end
+
+    entry do
+      command '405'
+      command ':method_not_allowed'
+      name 'Method Not Allowed'
+      notes "The resource was requested using a method that is not allowed. For example, requesting a resource via a `POST` method when the resource only supports the `GET` method."
+    end
+
+    entry do
+      command '406'
+      command ':not_acceptable'
+      name 'Not Acceptable'
+      notes "The resource is valid, but cannot be provided in a format specified in the `Accept` headers in the request."
+    end
+
+    entry do
+      command '407'
+      command ':proxy_authentication_required'
+      name 'Proxy Authentication Required'
+      notes "Authentication is required with the proxy before requests can be fulfilled."
+    end
+
+    entry do
+      command '408'
+      command ':request_timeout'
+      name 'Request Timeout'
+      notes "The server timed out waiting for a request from the client. The client is allowed to repeat the request."
+    end
+
+    entry do
+      command '409'
+      command ':conflict'
+      name 'Conflict'
+      notes "The request cannot be completed due to a conflict in the request parameters."
+    end
+
+    entry do
+      command '410'
+      command ':gone'
+      name 'Gone'
+      notes "The resource is no longer available at the requested URI and no redirection will be given."
+    end
+
+    entry do
+      command '411'
+      command ':length_required'
+      name 'Length Required'
+      notes "The request did not specify the length of its content as required by the resource."
+    end
+
+    entry do
+      command '412'
+      command ':precondition_failed'
+      name 'Precondition Failed'
+      notes "The server does not meet one of the preconditions specified by the client."
+    end
+
+    entry do
+      command '413'
+      command ':request_entity_too_large'
+      name 'Request Entity Too Large'
+      notes "The request is larger than what the server is able to process."
+    end
+
+    entry do
+      command '414'
+      command ':request_uri_too_long'
+      name 'Request-URI Too Long'
+      notes "The URI provided in the request is too long for the server to process. This is often used when too much data has been encoded into the URI of a `GET` request and a `POST` request should be used instead."
+    end
+
+    entry do
+      command '415'
+      command ':unsupported_media_type'
+      name 'Unsupported Media Type'
+      notes "The client provided data with a media type that the server does not support."
+    end
+
+    entry do
+      command '416'
+      command ':requested_range_not_satisfiable'
+      name 'Requested Rang Not Satisfiable'
+      notes "The client has asked for a portion of the resource but the server cannot supply that portion."
+    end
+
+    entry do
+      command '417'
+      command ':expectation_failed'
+      name 'Expectation Failed'
+      notes "The client has asked for a portion of the resource but the server cannot supply that portion."
+    end
+
+    entry do
+      command '422'
+      command ':unprocessable_entity'
+      name 'Unprocessable Entity'
+      notes "WebDAV - [RFC 4918](https://tools.ietf.org/html/rfc4918). The request was formatted correctly but cannot be processed in its current form. Often used when the speceified parameters fail validation errors."
+    end
+
+    entry do
+      command '423'
+      command ':locked'
+      name 'Locked'
+      notes "WebDAV - [RFC 4918](https://tools.ietf.org/html/rfc4918). The requested resource was found but has been locked and will not be returned."
+    end
+
+    entry do
+      command '424'
+      command ':failed_dependency'
+      name 'Failed Dependency'
+      notes "WebDAV - [RFC 4918](https://tools.ietf.org/html/rfc4918). The request failed due to a failure of a previous request."
+    end
+
+    entry do
+      command '426'
+      command ':upgrade_required'
+      name 'Upgrade Required'
+      notes "The client should repeat the request using an upgraded protocol such as TLS 1.0."
+    end
+
+    entry do
+      command '429'
+      name 'Too Many Requests'
+      notes "The client has sent too many requests to the server and is being rate limited."
+    end
+  end
 end
