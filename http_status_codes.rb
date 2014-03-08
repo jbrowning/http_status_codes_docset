@@ -52,7 +52,7 @@ INTRO
       command '201'
       command ':created'
       name 'Created'
-      notes 'The request has been fulfilled and a new resource has been created'
+      notes 'The request has been fulfilled and a new resource has been created.'
     end
 
     entry do
@@ -107,6 +107,71 @@ INTRO
       command '226'
       name 'IM Used'
       notes '[RFC 3229](https://tools.ietf.org/html/rfc3229). The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.'
+    end
+  end
+
+  category do
+    id '3xx Redirection'
+
+    entry do
+      command '300'
+      command ':multiple_choices'
+      name 'Multiple Choices'
+      notes 'There are multiple options that the client may follow.'
+    end
+
+    entry do
+      command '301'
+      command ':moved_permanently'
+      name 'Moved Permanently'
+      notes 'The resource has been moved and all futher requests should reference its new URI.'
+    end
+
+    entry do
+      command '302'
+      command ':found'
+      name 'Found'
+      notes 'The HTTP 1.0 specification described this status as "Moved Temporarily", but popular browsers respond to this status similar to behavior intended for `303`. The resource can be retrieved by referencing the returned URI.'
+    end
+
+    entry do
+      command '303'
+      command ':see_other'
+      name 'See Other'
+      notes 'The resource can be retrieved by following other URI using the `GET` method. When received in response to a `POST`, `PUT`, or `DELETE`, it can usually be assumed that the server processed the request successfully and is sending the client to an informational endpoint.'
+    end
+
+    entry do
+      command '304'
+      command ':not_modified'
+      name 'Not Modified'
+      notes 'The resource has not been modified since the version specified in `If-Modified-Since` or `If-Match` headers. The resource will not be returned in response body.'
+    end
+
+    entry do
+      command '305'
+      command ':use_proxy'
+      name 'Use Proxy'
+      notes 'HTTP 1.1. The resource is only available througha  proxy and the address is provided in the response.'
+    end
+
+    entry do
+      command '306'
+      name 'Switch Proxy'
+      notes 'Deprecated in HTTP 1.1. Used to mean that subsequent requests should be sent using the specified proxy.'
+    end
+
+    entry do
+      command '307'
+      command ':temporary_redirect'
+      name 'Temporary Redirect'
+      notes 'HTTP 1.1. The request should be repeated with the URI provided in the response, but future requests should still call the original URI.'
+    end
+
+    entry do
+      command '308'
+      name 'Permanent Redirect'
+      notes 'Experimental. The request and all future requests should be repeated with the URI provided in the response. The HTTP method is not allowed to be changed in the subsequent request.'
     end
   end
 
